@@ -1,0 +1,23 @@
+{% load compressed %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="description" content="{% block description %}{% endblock %}">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        {% block extra_meta %}{% endblock %}
+        <title>{% block title %}{% endblock %}</title>
+        {% block css %}
+            {% compressed_css "main" %}
+        {% endblock css %}
+    <body>
+        {% block content %}{% endblock %}
+
+        {% block javascript %}
+            <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+            {% compressed_js "footer" %}
+        {% endblock %}
+    </body>
+</html>
