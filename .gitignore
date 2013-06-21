@@ -1,0 +1,25 @@
+# os
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# pycharm project
+.idea/workspace.xml
+.idea/tasks.xml
+
+# python
+*.py[dco]
+*.pot
+*.egg
+*.egg-info
+
+# log, pid
+*.log
+*.pid
+
+# vagrant
+.vagrant
+
+# testing
+.noseids
+.coverage
