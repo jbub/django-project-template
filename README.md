@@ -29,3 +29,22 @@ I use these tools in nearly every project:
 * coverage
 * nose
 * mock
+
+## Post install
+
+There are some things you need to configure after install:
+
+### Local email settings in conf/local/settings.py
+
+```bash
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+```
+
+### ADMINS settings in conf/settings.py
+
+```bash
+ADMINS = (
+    #('Example Name', 'test@example.com'),
+)
+```
