@@ -32,16 +32,19 @@ I use these tools in nearly every project:
 
 ## Post install
 
-There are some things you need to configure after install:
+There are some things you need to configure after install.
 
-### Local email settings in conf/local/settings.py
+Local email settings in conf/local/settings.py
 
 ```bash
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True
 ```
 
-### ADMINS settings in conf/settings.py
+ADMINS settings in conf/settings.py
 
 ```bash
 ADMINS = (
