@@ -20,6 +20,9 @@ DATABASES = {
         'NAME': '{{ project_name }}',
         'USER': '{{ project_name }}',
         'PASSWORD': '',
+        'OPTIONS': {
+            'autocommit': True,
+        }
     },
 }
 
@@ -57,19 +60,13 @@ CACHES = {
 # -------
 # Session
 # -------
-SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 SESSION_CACHE_ALIAS = 'default'
 
 # --------
 # Security
 # --------
 ALLOWED_HOSTS = ['.{{ project_name }}.sk']
-
-# ---------------
-# django-pipeline
-# ---------------
-PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.jsmin.JSMinCompressor'
-PIPELINE_CSS_COMPRESSOR = 'base.compressors.CSSMinCompressor'
 
 # -----
 # South
