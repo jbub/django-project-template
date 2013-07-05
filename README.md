@@ -19,7 +19,7 @@ pip install -r requirements/local.txt
 In order to test the project we need to install testing requirements.
 
 ```bash
-pip install -r requirements/local.txt
+pip install -r requirements/test.txt
 ```
 
 I use these tools in nearly every project:
