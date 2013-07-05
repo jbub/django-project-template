@@ -98,16 +98,6 @@ MIDDLEWARE_CLASSES += (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-# -----
-# Cache
-# -----
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-        'KEY_PREFIX': PROJECT_MODULE_NAME,
-    }
-}
-
 # --------
 # Security
 # --------
@@ -176,4 +166,6 @@ PIPELINE_JS = {
         'output_filename': 'base/js/cache-footer.js',
     },
 }
+PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.jsmin.JSMinCompressor'
+PIPELINE_CSS_COMPRESSOR = 'base.compressors.CSSMinCompressor'
 PIPELINE_DISABLE_WRAPPER = True
