@@ -25,7 +25,7 @@ pip install -r requirements/test.txt
 I use these tools in nearly every project:
 
 * django-nose
-* django-dynamic-fixture
+* factory-boy
 * coverage
 * nose
 * mock
