@@ -46,8 +46,3 @@ NOSE_ARGS = ['--processes={0}'.format(multiprocessing.cpu_count()),
 # South
 # -----
 SOUTH_TESTS_MIGRATE = False
-
-# ----------------------
-# django-dynamic-fixture
-# ----------------------
-DDF_VALIDATE_MODELS = True

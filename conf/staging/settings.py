@@ -1,5 +1,7 @@
 # coding=utf-8
 
+import dj_database_url
+
 from conf.settings import *
 
 # ------
@@ -12,19 +14,10 @@ ROOT_URLCONF = 'conf.staging.urls'
 # ---------
 # Databases
 # ---------
-DATABASES = {
-    'default': {
-        'ENGINE': 'django_postgrespool',
-        'HOST': '',
-        'PORT': '',
-        'NAME': '{{ project_name }}',
-        'USER': '{{ project_name }}',
-        'PASSWORD': '',
-        'OPTIONS': {
-            'autocommit': True,
-        }
-    },
-}
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(env='DATABASE_URL')
+DATABASES['default']['ENGINE'] = 'django_postgrespool'
+DATABASES['default']['OPTIONS'] = {'autocommit': True}
 
 # ------
 # Static
@@ -67,6 +60,7 @@ SESSION_CACHE_ALIAS = 'default'
 # Security
 # --------
 ALLOWED_HOSTS = ['.{{ project_name }}.sk']
+SECRET_KEY = ''
 
 # -----
 # South
