@@ -4,7 +4,6 @@
 
 Basic template for your Django projects.
 
-
 Installation
 ------------
 
@@ -42,5 +41,13 @@ I use these tools in nearly every project:
 Database
 --------
 
-I assume you want to use PostgreSQL, so *dj_database_url* is used to configure it from environment
-variable. To enable simple connection pooling i use lovely *django-postgrespool*.
+I assume you want to use PostgreSQL, so **dj_database_url** is used to configure it from environment
+variable. To enable simple connection pooling i use lovely **django-postgrespool**.
+
+Environment variables
+---------------------
+
+There are some environment variables you need to provide in production:
+
+- DATABASE_URL
+- SECRET_KEY
