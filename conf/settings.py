@@ -3,6 +3,13 @@
 import os
 
 from django.conf.global_settings import *
+from django.core.exceptions import ImproperlyConfigured
+
+
+def env_var(key):
+    if key not in os.environ:
+        raise ImproperlyConfigured('Environment variable {0} not provided!'.format(key))
+    return os.environ[key]
 
 # ------
 # Common
