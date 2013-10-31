@@ -108,7 +108,6 @@ def localclean():
     local('find . -name "*.pyc" -exec rm {} \;')
 
 
-
 @task
 def deploy():
     clone()
