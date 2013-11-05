@@ -60,7 +60,7 @@ SESSION_CACHE_ALIAS = 'default'
 # Security
 # --------
 ALLOWED_HOSTS = ['.{{ project_name }}.sk']
-SECRET_KEY = ''
+SECRET_KEY = env_var('SECRET_KEY')
 
 # -----
 # South
