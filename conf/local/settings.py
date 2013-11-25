@@ -14,7 +14,7 @@ ROOT_URLCONF = 'conf.local.urls'
 # ---------
 DATABASES = {
     'default': {
-        'ENGINE': 'django_postgrespool',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'HOST': 'localhost',
         'NAME': '{{ project_name }}',
         'USER': '',
@@ -69,4 +69,13 @@ DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False}
 # -----
 SOUTH_DATABASE_ADAPTERS = {
     'default': 'south.db.postgresql_psycopg2'
+}
+
+# --------------
+# djorm-ext-pool
+# --------------
+DJORM_POOL_OPTIONS = {
+    'pool_size': 10,
+    'max_overflow': 0,
+    'recycle': 3600,
 }

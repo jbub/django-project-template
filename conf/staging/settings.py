@@ -16,7 +16,7 @@ ROOT_URLCONF = 'conf.staging.urls'
 # ---------
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config(env='DATABASE_URL')
-DATABASES['default']['ENGINE'] = 'django_postgrespool'
+DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
 DATABASES['default']['OPTIONS'] = {'autocommit': True}
 
 # ------
@@ -67,4 +67,13 @@ SECRET_KEY = env_var('SECRET_KEY')
 # -----
 SOUTH_DATABASE_ADAPTERS = {
     'default': 'south.db.postgresql_psycopg2'
+}
+
+# --------------
+# djorm-ext-pool
+# --------------
+DJORM_POOL_OPTIONS = {
+    'pool_size': 10,
+    'max_overflow': 0,
+    'recycle': 3600,
 }

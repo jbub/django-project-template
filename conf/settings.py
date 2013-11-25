@@ -87,6 +87,7 @@ INSTALLED_APPS = (
     'south',
     'pipeline',
     'braces',
+    'djorm_pool',
     # own
     'base',
 )
