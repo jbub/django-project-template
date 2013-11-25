@@ -16,7 +16,6 @@ ROOT_URLCONF = 'conf.staging.urls'
 # ---------
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config(env='DATABASE_URL')
-DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
 DATABASES['default']['OPTIONS'] = {'autocommit': True}
 
 # ------
