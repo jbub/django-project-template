@@ -29,25 +29,24 @@ In order to test the project we need to install testing requirements.
 
     pip install -r requirements/test.txt
 
-
 I use these tools in nearly every project:
 
-- django-nose
-- factory-boy
-- coverage
-- nose
-- mock
+- **django-nose**
+- **factory-boy**
+- **coverage**
+- **nose**
+- **mock**
 
 Database
 --------
 
-I assume you want to use PostgreSQL, so **dj_database_url** is used to configure it from environment
-variable. To enable simple connection pooling i use lovely **django-postgrespool**.
+- **dj_database_url** for configuring database from environment variable
+- **djorm-ext-pool** for simple connection pooling
 
 Environment variables
 ---------------------
 
-There are some environment variables you need to provide in production:
+There are some environment variables you need to provide in production/staging environment:
 
 - DATABASE_URL
 - SECRET_KEY
