@@ -2,6 +2,10 @@
  django-project-template
 =========================
 
+.. image:: https://requires.io/github/jbub/django-project-template/requirements.png?branch=master
+   :target: https://requires.io/github/jbub/django-project-template/requirements/?branch=master
+   :alt: Requirements Status
+
 Basic template for your Django projects.
 
 Installation
