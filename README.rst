@@ -1,10 +1,5 @@
-=========================
- django-project-template
-=========================
-
-.. image:: https://d2weczhvl823v0.cloudfront.net/jbub/django-project-template/trend.png
-   :target: https://bitdeli.com/free
-   :alt: Bitdeli Badge
+django-project-template
+=======================
 
 .. image:: https://requires.io/github/jbub/django-project-template/requirements.png?branch=master
    :target: https://requires.io/github/jbub/django-project-template/requirements/?branch=master
