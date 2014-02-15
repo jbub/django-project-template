@@ -1,7 +1,7 @@
 -r base.txt
 django-debug-toolbar==1.0.1
 ecdsa==0.10
-Fabric==1.8.1
-paramiko==1.12.1
+Fabric==1.8.2
+paramiko==1.12.2
 pycrypto==2.6.1
-sqlparse==0.1.10
+sqlparse==0.1.11
