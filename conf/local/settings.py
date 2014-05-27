@@ -9,22 +9,6 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 ROOT_URLCONF = 'conf.local.urls'
 
-# ---------
-# Databases
-# ---------
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': 'localhost',
-        'NAME': '{{ project_name }}',
-        'USER': '',
-        'PASSWORD': '',
-        'OPTIONS': {
-            'autocommit': True,
-        }
-    },
-}
-
 # -----
 # Email
 # -----
@@ -53,7 +37,7 @@ MIDDLEWARE_CLASSES += (
 # -----
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
         'KEY_PREFIX': PROJECT_MODULE_NAME,
     }
 }
@@ -62,20 +46,6 @@ CACHES = {
 # django-debug-toolbar
 # --------------------
 INTERNAL_IPS = ('127.0.0.1',)
-DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False}
-
-# -----
-# South
-# -----
-SOUTH_DATABASE_ADAPTERS = {
-    'default': 'south.db.postgresql_psycopg2'
-}
-
-# --------------
-# djorm-ext-pool
-# --------------
-DJORM_POOL_OPTIONS = {
-    'pool_size': 10,
-    'max_overflow': 0,
-    'recycle': 3600,
+DEBUG_TOOLBAR_CONFIG = {
+    'DISABLE_PANELS': set(['debug_toolbar.panels.redirects.RedirectsPanel'])
 }

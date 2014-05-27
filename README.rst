@@ -34,10 +34,10 @@ In order to test the project we need to install testing requirements.
 
 I use these tools in nearly every project:
 
-- **django-nose**
+- **pytest-django**
 - **factory-boy**
 - **coverage**
-- **nose**
+- **py.test**
 - **mock**
 
 Database
@@ -53,3 +53,5 @@ There are some environment variables you need to provide in production/staging e
 
 - DATABASE_URL
 - SECRET_KEY
+- DJANGO_SETTINGS_MODULE
+- REDIS_CACHE_URL

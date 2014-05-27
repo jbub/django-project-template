@@ -1,15 +1,10 @@
 # coding=utf-8
 
 import os
+import dj_database_url
 
+from conf.env import env_var
 from django.conf.global_settings import *
-from django.core.exceptions import ImproperlyConfigured
-
-
-def env_var(key):
-    if key not in os.environ:
-        raise ImproperlyConfigured('Environment variable {0} not provided!'.format(key))
-    return os.environ[key]
 
 # ------
 # Common
@@ -43,6 +38,20 @@ USE_TZ = False
 LOCALE_PATHS = (
     os.path.join(PROJECT_ROOT, 'locale'),
 )
+
+# ---------
+# Databases
+# ---------
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(env='DATABASE_URL')
+DATABASES['default']['OPTIONS'] = {'autocommit': True}
+DATABASES['test'] = {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'test_{{ project_name }}',
+    'USER': '',
+    'PASSWORD': '',
+    'HOST': 'localhost'
+}
 
 # ----
 # Urls
@@ -95,14 +104,26 @@ INSTALLED_APPS = (
 # ------------------
 # Context processors
 # ------------------
-TEMPLATE_CONTEXT_PROCESSORS += (
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
     'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
 )
 
 # ----------
 # Middleware
 # ----------
-MIDDLEWARE_CLASSES += (
+MIDDLEWARE_CLASSES = (
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
@@ -110,7 +131,7 @@ MIDDLEWARE_CLASSES += (
 # Security
 # --------
 X_FRAME_OPTIONS = 'SAMEORIGIN'
-SECRET_KEY = '{{ secret_key }}'
+SECRET_KEY = env_var('SECRET_KEY')
 PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.BCryptPasswordHasher',
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
@@ -121,6 +142,12 @@ PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.UnsaltedMD5PasswordHasher',
     'django.contrib.auth.hashers.CryptPasswordHasher',
 )
+
+# -------
+# Session
+# -------
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+SESSION_CACHE_ALIAS = 'default'
 
 # ----
 # Wsgi
@@ -177,3 +204,19 @@ PIPELINE_JS = {
 PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.jsmin.JSMinCompressor'
 PIPELINE_CSS_COMPRESSOR = 'base.compressors.CSSMinCompressor'
 PIPELINE_DISABLE_WRAPPER = True
+
+# --------------
+# djorm-ext-pool
+# --------------
+DJORM_POOL_OPTIONS = {
+    'pool_size': 10,
+    'max_overflow': 0,
+    'recycle': 3600,
+}
+
+# -----
+# South
+# -----
+SOUTH_DATABASE_ADAPTERS = {
+    'default': 'south.db.postgresql_psycopg2',
+}

@@ -1,12 +1,12 @@
 # coding=utf-8
 
-import multiprocessing
-
 from conf.settings import *
 
 # ------
 # Common
 # ------
+DEBUG = False
+TEMPLATE_DEBUG = DEBUG
 ROOT_URLCONF = 'conf.test.urls'
 
 # ---------
@@ -14,7 +14,11 @@ ROOT_URLCONF = 'conf.test.urls'
 # ---------
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '{{ project_name }}',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': 'localhost'
     }
 }
 
@@ -27,20 +31,6 @@ CACHES = {
         'KEY_PREFIX': PROJECT_MODULE_NAME,
     }
 }
-
-# ----
-# Apps
-# ----
-INSTALLED_APPS += (
-    'django_nose',
-)
-
-# -----
-# Tests
-# -----
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-NOSE_ARGS = ['--processes={0}'.format(multiprocessing.cpu_count()),
-             '--stop', '--nologcapture']
 
 # -----
 # South

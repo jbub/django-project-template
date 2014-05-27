@@ -1,7 +1,5 @@
 # coding=utf-8
 
-import dj_database_url
-
 from conf.settings import *
 
 # ------
@@ -10,13 +8,6 @@ from conf.settings import *
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 ROOT_URLCONF = 'conf.staging.urls'
-
-# ---------
-# Databases
-# ---------
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config(env='DATABASE_URL')
-DATABASES['default']['OPTIONS'] = {'autocommit': True}
 
 # ------
 # Static
@@ -43,36 +34,16 @@ TEMPLATE_LOADERS = (
 # -----
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211',
+        'BACKEND': 'redis_cache.cache.RedisCache',
+        'LOCATION': env_var('REDIS_CACHE_URL'),
         'KEY_PREFIX': PROJECT_MODULE_NAME,
+        'OPTIONS': {
+            'CLIENT_CLASS': 'redis_cache.client.DefaultClient',
+        }
     }
 }
-
-# -------
-# Session
-# -------
-SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
-SESSION_CACHE_ALIAS = 'default'
 
 # --------
 # Security
 # --------
 ALLOWED_HOSTS = ['.{{ project_name }}.sk']
-SECRET_KEY = env_var('SECRET_KEY')
-
-# -----
-# South
-# -----
-SOUTH_DATABASE_ADAPTERS = {
-    'default': 'south.db.postgresql_psycopg2'
-}
-
-# --------------
-# djorm-ext-pool
-# --------------
-DJORM_POOL_OPTIONS = {
-    'pool_size': 10,
-    'max_overflow': 0,
-    'recycle': 3600,
-}
