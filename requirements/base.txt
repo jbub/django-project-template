@@ -10,6 +10,6 @@ futures==2.1.6
 jsmin==2.0.9
 psycopg2==2.5.3
 py-bcrypt==0.4
-six==1.6.1
+six==1.7.2
 South==0.8.4
 SQLAlchemy==0.9.4
