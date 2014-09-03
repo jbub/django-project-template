@@ -13,7 +13,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 SITE_ID = 1
 ADMINS = (
-    #('Example Name', 'test@example.com'),
+    # ('Example Name', 'test@example.com'),
 )
 MANAGERS = ADMINS
 
@@ -93,7 +93,6 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'django.contrib.sitemaps',
     # 3rd party
-    'south',
     'pipeline',
     'braces',
     'djorm_pool',
@@ -212,11 +211,4 @@ DJORM_POOL_OPTIONS = {
     'pool_size': 10,
     'max_overflow': 0,
     'recycle': 3600,
-}
-
-# -----
-# South
-# -----
-SOUTH_DATABASE_ADAPTERS = {
-    'default': 'south.db.postgresql_psycopg2',
 }

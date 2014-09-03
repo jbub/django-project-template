@@ -31,8 +31,3 @@ CACHES = {
         'KEY_PREFIX': PROJECT_MODULE_NAME,
     }
 }
-
-# -----
-# South
-# -----
-SOUTH_TESTS_MIGRATE = False
