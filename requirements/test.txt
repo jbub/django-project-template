@@ -3,8 +3,8 @@ coverage==3.7.1
 execnet==1.2.0
 factory-boy==2.4.1
 mock==1.0.1
-py==1.4.23
+py==1.4.24
 pytest-cov==1.8.0
 pytest-django==2.6.2
 pytest-xdist==1.10
-pytest==2.6.1
+pytest==2.6.2
