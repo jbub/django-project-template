@@ -2,6 +2,6 @@
 django-debug-toolbar==1.2.1
 ecdsa==0.11
 Fabric==1.10.0
-paramiko==1.14.1
+paramiko==1.15.1
 pycrypto==2.6.1
-sqlparse==0.1.11
+sqlparse==0.1.13
