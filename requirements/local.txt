@@ -1,5 +1,5 @@
 -r base.txt
-django-debug-toolbar==1.2.1
+django-debug-toolbar==1.2.2
 ecdsa==0.11
 Fabric==1.10.0
 paramiko==1.15.1

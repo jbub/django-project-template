@@ -1,4 +1,4 @@
 -r base.txt
-django-redis==3.7.1
+django-redis==3.7.2
 redis==2.10.3
-uWSGI==2.1
+uWSGI==2.0.8
