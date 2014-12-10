@@ -4,4 +4,4 @@ ecdsa==0.11
 Fabric==1.10.0
 paramiko==1.15.1
 pycrypto==2.6.1
-sqlparse==0.1.13
+sqlparse==0.1.14
