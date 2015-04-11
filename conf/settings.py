@@ -75,8 +75,29 @@ STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 # ---------
 # Templates
 # ---------
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+    },
+    {
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',
+        'APP_DIRS': True,
+        'DIRS': [],
+    },
+]
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'templates'),
+)
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
 )
 
 # ----
@@ -98,20 +119,6 @@ INSTALLED_APPS = (
     'djorm_pool',
     # own
     'base',
-)
-
-# ------------------
-# Context processors
-# ------------------
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.core.context_processors.tz',
-    'django.core.context_processors.request',
-    'django.contrib.messages.context_processors.messages',
 )
 
 # ----------
@@ -141,6 +148,12 @@ PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.UnsaltedMD5PasswordHasher',
     'django.contrib.auth.hashers.CryptPasswordHasher',
 )
+SECURE_BROWSER_XSS_FILTER = False
+SECURE_CONTENT_TYPE_NOSNIFF = False
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_REDIRECT_EXEMPT = []
+SECURE_SSL_HOST = None
+SECURE_SSL_REDIRECT = False
 
 # -------
 # Session
