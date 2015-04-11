@@ -58,11 +58,6 @@ def migrate():
 
 
 @task
-def syncdb():
-    manage('syncdb')
-
-
-@task
 def git(cmd):
     with cd(env.project['root']):
         run('git {0}'.format(cmd))
@@ -112,7 +107,6 @@ def localclean():
 def deploy():
     clone()
     install()
-    syncdb()
     migrate()
     collectstatic()
 
@@ -120,6 +114,5 @@ def deploy():
 @task
 def update():
     pull()
-    syncdb()
     migrate()
     collectstatic()
