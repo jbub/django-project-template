@@ -6,11 +6,11 @@ django-model-utils==2.2
 django-pipeline==1.5.0
 Django==1.8.1
 djorm-ext-pool==0.8.2
-futures==2.2.0
+futures==3.0.1
 Jinja2==2.7.3
 jsmin==2.1.1
 MarkupSafe==0.23
 psycopg2==2.6
 py-bcrypt==0.4
 six==1.9.0
-SQLAlchemy==1.0.3
+SQLAlchemy==1.0.4
