@@ -1,6 +1,6 @@
 apipkg==1.4
 cov-core==1.15.0
-coverage==4.0.2
+coverage==4.0.3
 execnet==1.4.1
 factory-boy==2.6.0
 fake-factory==0.5.3
