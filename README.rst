@@ -5,7 +5,7 @@ django-project-template
    :target: https://requires.io/github/jbub/django-project-template/requirements/?branch=master
    :alt: Requirements Status
 
-Basic template for your Django 1.9 projects.
+Basic template for your Django 1.10 projects.
 
 Installation
 ------------
