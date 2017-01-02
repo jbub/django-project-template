@@ -1,7 +1,9 @@
 -r base.txt
-django-debug-toolbar==1.4.0
+cffi==1.9.1
+cryptography==1.7.1
+django-debug-toolbar==1.6
 ecdsa==0.13
-Fabric==1.10.2
-paramiko==1.16.0
+Fabric==1.13.1
+paramiko==2.1.1
 pycrypto==2.6.1
 sqlparse==0.1.18

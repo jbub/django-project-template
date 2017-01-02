@@ -1,5 +1,5 @@
 -r base.txt
-django-redis==4.3.0
-msgpack-python==0.4.6
+django-redis==4.6.0
+msgpack-python==0.4.8
 redis==2.10.5
-uWSGI==2.0.12
+uWSGI==2.0.14
