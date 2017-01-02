@@ -8,11 +8,11 @@ Django==1.10.4
 djorm-ext-pool==0.8.2
 enum34==1.1.6
 futures==3.0.5
-Jinja2==2.8
+Jinja2==2.8.1
 jsmin==2.2.1
 MarkupSafe==0.23
 psycopg2==2.6.2
 py-bcrypt==0.4
 six==1.10.0
 SQLAlchemy==1.1.4
-wheel==0.26.0
+wheel==0.29.0
